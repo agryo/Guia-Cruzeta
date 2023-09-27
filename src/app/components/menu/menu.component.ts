@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
           {
               label: 'Home',
               icon: 'pi pi-fw pi-home',
+              routerLink: '/'
           },
           {
               label: 'História',
@@ -94,7 +95,8 @@ export class MenuComponent implements OnInit {
           },
           {
               label: 'Sobre',
-              icon: 'pi pi-fw pi-info-circle'
+              icon: 'pi pi-fw pi-info-circle',
+              routerLink: '/sobre'
           }
       ];
   }

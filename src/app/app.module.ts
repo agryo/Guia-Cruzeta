@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './components/menu/menu.component';
 
+//Páginas do Site
+import { IndexModule } from "./pages/index/index.module";
+import { SobreModule } from "./pages/sobre/sobre.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,9 @@ import { MenuComponent } from './components/menu/menu.component';
     BrowserAnimationsModule,
     StyleClassModule,
     MenubarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IndexModule,
+    SobreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
