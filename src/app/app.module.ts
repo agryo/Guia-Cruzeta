@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MenubarModule } from 'primeng/menubar';
 import { StyleClassModule } from 'primeng/styleclass';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,9 +22,12 @@ import { SobreModule } from "./pages/sobre/sobre.module";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     StyleClassModule,
     MenubarModule,
+    ButtonModule,
+    InputTextModule,
     AppRoutingModule,
     IndexModule,
     SobreModule
