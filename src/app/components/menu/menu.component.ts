@@ -20,44 +20,44 @@ export class MenuComponent implements OnInit {
               icon: 'pi pi-fw pi-book',
               items: [
                   {
-                      label: 'Cruzeta',
-                      icon: 'pi pi-fw pi-tag'
+                      label: 'Guia-Cruzeta',
+                      icon: 'pi pi-fw pi-history'
                   },
                   {
-                      label: 'Guia-Cruzeta',
-                      icon: 'pi pi-fw pi-tag'
+                      label: 'Cruzeta',
+                      icon: 'pi pi-fw pi-history'
                   }
               ]
           },
           {
-              label: 'Usuários',
-              icon: 'pi pi-fw pi-user',
+              label: 'Guia',
+              icon: 'pi pi-fw pi-compass',
               items: [
                   {
-                      label: 'Novo',
-                      icon: 'pi pi-fw pi-user-plus'
+                      label: 'Negócios',
+                      icon: 'pi pi-fw pi-chart-line'
                   },
                   {
-                      label: 'Delete',
-                      icon: 'pi pi-fw pi-user-minus'
+                      label: 'Serviços',
+                      icon: 'pi pi-fw pi-wrench'
                   },
                   {
-                      label: 'Procurar',
-                      icon: 'pi pi-fw pi-users',
+                      label: 'Turismo',
+                      icon: 'pi pi-fw pi-sun',
                       items: [
                           {
-                              label: 'Filtrar',
-                              icon: 'pi pi-fw pi-filter',
+                              label: 'Trilhas',
+                              icon: 'pi pi-fw pi-map',
                               items: [
                                   {
-                                      label: 'Imprimir',
-                                      icon: 'pi pi-fw pi-print'
+                                      label: 'Rotas',
+                                      icon: 'pi pi-fw pi-sort-alt'
                                   }
                               ]
                           },
                           {
-                              icon: 'pi pi-fw pi-bars',
-                              label: 'Lista'
+                              label: 'Locais',
+                              icon: 'pi pi-fw pi-map-marker'
                           }
                       ]
                   }
@@ -68,25 +68,15 @@ export class MenuComponent implements OnInit {
               icon: 'pi pi-fw pi-calendar',
               items: [
                   {
-                      label: 'Editar',
-                      icon: 'pi pi-fw pi-pencil',
+                      label: 'Festividades',
+                      icon: 'pi pi-fw pi-gift',
                       items: [
                           {
-                              label: 'Salvar',
+                              label: 'Públicas',
                               icon: 'pi pi-fw pi-calendar-plus'
                           },
                           {
-                              label: 'Delete',
-                              icon: 'pi pi-fw pi-calendar-minus'
-                          }
-                      ]
-                  },
-                  {
-                      label: 'Arquivados',
-                      icon: 'pi pi-fw pi-calendar-times',
-                      items: [
-                          {
-                              label: 'Remove',
+                              label: 'Privadas',
                               icon: 'pi pi-fw pi-calendar-minus'
                           }
                       ]

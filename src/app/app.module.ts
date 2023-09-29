@@ -14,11 +14,13 @@ import { MenuComponent } from './components/menu/menu.component';
 //Páginas do Site
 import { IndexModule } from "./pages/index/index.module";
 import { SobreModule } from "./pages/sobre/sobre.module";
+import { RodapeComponent } from './components/rodape/rodape.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
