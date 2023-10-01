@@ -1,0 +1,14 @@
+<div class="card flex justify-content-center">
+  <p-card class="p-1" header="{{ negocio.id }} - {{ negocio.nome }}" subheader="{{ negocio.numero }}" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header" class="p-1">
+      <img class="p-3" alt="Card" src="../../../assets/imgs/logomarca.png" />
+    </ng-template>
+    <p>
+      {{ negocio.descricao }}
+    </p>
+    <ng-template pTemplate="footer" class="p-1">
+      <p-button label="Detalhes" icon="pi pi-check"></p-button>
+      <p-button label="Fechar" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+    </ng-template>
+  </p-card>
+ </div>
