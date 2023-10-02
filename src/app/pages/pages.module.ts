@@ -19,6 +19,6 @@ import { SobreComponent } from './sobre/sobre.component';
   exports: [
     HomeComponent,
     SobreComponent
-  ]
+  ],
 })
 export class PagesModule { }
