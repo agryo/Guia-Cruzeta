@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PrimeNgModule } from "../prime-ng/prime-ng.module";
 import { HomeComponent } from './home/home.component';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
+import { SobreComponent } from './sobre/sobre.component';
+
 
 @NgModule({
   declarations: [
-    HomeComponent
-  ],
-  exports: [
-    HomeComponent
+    HomeComponent,
+    SobreComponent
   ],
   imports: [
     FormsModule,
     CommonModule,
-    ButtonModule,
-    InputTextModule
+    PrimeNgModule
+  ],
+  exports: [
+    HomeComponent,
+    SobreComponent
   ]
 })
-export class IndexModule { }
+export class PagesModule { }
