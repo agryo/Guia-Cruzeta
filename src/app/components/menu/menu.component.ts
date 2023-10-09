@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html'
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
   items: MenuItem[] | undefined;
+  isMenuFixed = false;
 
   ngOnInit() {
       this.items = [
@@ -89,5 +91,15 @@ export class MenuComponent implements OnInit {
               routerLink: '/sobre'
           }
       ];
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    // Verifique a posição de rolagem
+    if (window.scrollY  > 100) { // Ajuste o valor conforme necessário
+      this.isMenuFixed = true;
+    } else {
+      this.isMenuFixed = false;
+    }
   }
 }
