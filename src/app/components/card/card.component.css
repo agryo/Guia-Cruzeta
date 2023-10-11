@@ -3,7 +3,6 @@
   width: 260px;
   height: 260px;
   margin: 5px;
-  border: 1px solid #cccccc41;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -11,6 +10,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.card:hover {
+  border: 1px solid #cccccc41;
 }
 
 /* Estilos para a imagem */
@@ -33,7 +36,7 @@
 /* Estilos para a descrição */
 .card p {
   font-size: 14px;
-  margin: 10px 0;
+  margin: 10px 5px;
 }
 
 /* Estilos para os botões */

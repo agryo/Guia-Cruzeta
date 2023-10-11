@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PrimeNgModule } from "../prime-ng/prime-ng.module";
 import { HomeComponent } from './home/home.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SobreComponent } from './sobre/sobre.component';
   imports: [
     FormsModule,
     CommonModule,
-    PrimeNgModule
+    PrimeNgModule,
+    ComponentsModule
   ],
   exports: [
     HomeComponent,
