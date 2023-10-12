@@ -11,15 +11,14 @@ import { environment } from "src/environments/environment";
 })
 export class ApiService {
   private baseAPI: string = ""
-  private id: number = 1
-  private dados: NegocioData | any
+  private dados: any
 
   constructor( private http:HttpClient ) {
     this.baseAPI = environment.apiUrl
   }
 
-  listarNegocios():Observable<NegocioData> {
-    this.dados = this.http.get<NegocioData>(`${this.baseAPI}${this.id}`)
+  listarNegocios():Observable<any> {
+    this.dados = this.http.get<any>(`${this.baseAPI}`)
     return this.dados
   }
 }

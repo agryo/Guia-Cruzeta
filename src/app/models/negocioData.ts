@@ -1,8 +1,5 @@
 export type NegocioData = {
-  id: number
-  nome: string
-  descricao: string
-  telefones: [{
-    numero: string
-  }]
-}
+    nome: string
+    descricao: string
+    telefone: string
+  }
