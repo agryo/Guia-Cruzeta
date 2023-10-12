@@ -5,12 +5,14 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { MenuComponent } from "./menu/menu.component";
 import { CardComponent } from './card/card.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
     MenuComponent,
     CardComponent,
-    RodapeComponent
+    RodapeComponent,
+    LogoComponent
   ],
   imports: [
     FormsModule,
@@ -20,7 +22,8 @@ import { RodapeComponent } from './rodape/rodape.component';
   exports: [
     MenuComponent,
     CardComponent,
-    RodapeComponent
+    RodapeComponent,
+    LogoComponent
   ]
 })
 export class ComponentsModule { }
