@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
           descricao: item.descricao
         };
       });
-      console.log(this.negocioInfo)
     });
   }
 }
