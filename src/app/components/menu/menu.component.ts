@@ -23,11 +23,13 @@ export class MenuComponent implements OnInit {
               items: [
                   {
                       label: 'Guia-Cruzeta',
-                      icon: 'pi pi-fw pi-history'
+                      icon: 'pi pi-fw pi-history',
+                      routerLink: '/guia'
                   },
                   {
                       label: 'Cruzeta',
-                      icon: 'pi pi-fw pi-history'
+                      icon: 'pi pi-fw pi-history',
+                      routerLink: '/cruzeta'
                   }
               ]
           },
@@ -37,11 +39,13 @@ export class MenuComponent implements OnInit {
               items: [
                   {
                       label: 'Negócios',
-                      icon: 'pi pi-fw pi-chart-line'
+                      icon: 'pi pi-fw pi-chart-line',
+                      routerLink: '/negocios'
                   },
                   {
                       label: 'Serviços',
-                      icon: 'pi pi-fw pi-wrench'
+                      icon: 'pi pi-fw pi-wrench',
+                      routerLink: '/servicos'
                   },
                   {
                       label: 'Turismo',
@@ -53,13 +57,15 @@ export class MenuComponent implements OnInit {
                               items: [
                                   {
                                       label: 'Rotas',
-                                      icon: 'pi pi-fw pi-sort-alt'
+                                      icon: 'pi pi-fw pi-sort-alt',
+                                      routerLink: '/rotas'
                                   }
                               ]
                           },
                           {
                               label: 'Locais',
-                              icon: 'pi pi-fw pi-map-marker'
+                              icon: 'pi pi-fw pi-map-marker',
+                              routerLink: '/locais'
                           }
                       ]
                   }
@@ -75,11 +81,13 @@ export class MenuComponent implements OnInit {
                       items: [
                           {
                               label: 'Públicas',
-                              icon: 'pi pi-fw pi-calendar-plus'
+                              icon: 'pi pi-fw pi-calendar-plus',
+                              routerLink: '/publicos'
                           },
                           {
                               label: 'Privadas',
-                              icon: 'pi pi-fw pi-calendar-minus'
+                              icon: 'pi pi-fw pi-calendar-minus',
+                              routerLink: '/privados'
                           }
                       ]
                   }

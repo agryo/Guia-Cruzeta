@@ -1,0 +1,7 @@
+.guia {
+  display: flex;
+}
+
+img {
+  max-width: -webkit-fill-available;
+}
