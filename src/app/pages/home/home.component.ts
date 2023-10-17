@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NegocioData } from 'src/app/models/negocioData';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
   value: string | undefined;
   negocioInfo: NegocioData[] = []
 
-  constructor(private apiService: ApiService){
+  constructor( private apiService: ApiService, private router: Router ) {
+
   }
 
   ngOnInit(): void {
@@ -23,6 +25,16 @@ export class HomeComponent implements OnInit {
           descricao: item.descricao
         };
       });
+    });
+  }
+
+  buscar() {
+    console.log("Teste funcionando, recebendo " + this.value)
+
+    this.router.navigate(['/buscar'], {
+      queryParams: {
+        query: this.value
+      }
     });
   }
 }

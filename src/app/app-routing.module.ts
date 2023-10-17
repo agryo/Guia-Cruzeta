@@ -11,6 +11,7 @@ import { LocaisComponent } from './pages/locais/locais.component';
 import { RotasComponent } from './pages/rotas/rotas.component';
 import { PublicosComponent } from './pages/publicos/publicos.component';
 import { PrivadosComponent } from './pages/privados/privados.component';
+import { BuscaComponent } from './pages/busca/busca.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent, pathMatch:'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path:'rotas', component: RotasComponent, pathMatch:'prefix'},
   { path:'publicos', component: PublicosComponent, pathMatch:'prefix'},
   { path:'privados', component: PrivadosComponent, pathMatch:'prefix'},
+  { path:'buscar', component: BuscaComponent, pathMatch:'prefix'},
   { path:'**', redirectTo:''}
 ];
 

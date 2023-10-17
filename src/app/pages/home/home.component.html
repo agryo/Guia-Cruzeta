@@ -12,7 +12,7 @@
               <input class="pr-8" type="text" pInputText [(ngModel)]="value" />
             </span>
 
-            <button pButton pRipple label="Buscar" type="button" class="ml-1 mr-3 p-button-raised"></button>
+            <button pButton pRipple (click)="buscar()" label="Buscar" type="button" class="ml-1 mr-3 p-button-raised"></button>
         </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden">

@@ -25,9 +25,17 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/primeng/resources/themes/bootstrap4-dark-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "src/bootstrap4-dark-blue.css",
+                "bundleName": "dark-blue",
+                "inject": false
+              },
+              {
+                "input": "src/bootstrap4-light-blue.css",
+                "bundleName": "light-blue",
+                "inject": false
+              }
             ],
             "scripts": []
           },

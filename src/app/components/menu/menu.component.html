@@ -4,7 +4,7 @@
       <img class="mx-8" src="../../../assets/imgs/logo-guia-trsp.png" height="90" />
     </ng-template>
     <ng-template pTemplate="end">
-      <p-button class="mx-8" icon="pi pi-sun"></p-button>
+      <p-button class="mx-8" icon="{{ buttonTema.icon }}" (click)="mudarTema()"></p-button>
     </ng-template>
   </p-menubar>
 </section>

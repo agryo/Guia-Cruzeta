@@ -13,6 +13,7 @@ import { LocaisComponent } from './locais/locais.component';
 import { RotasComponent } from './rotas/rotas.component';
 import { PublicosComponent } from './publicos/publicos.component';
 import { PrivadosComponent } from './privados/privados.component';
+import { BuscaComponent } from './busca/busca.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PrivadosComponent } from './privados/privados.component';
     LocaisComponent,
     RotasComponent,
     PublicosComponent,
-    PrivadosComponent
+    PrivadosComponent,
+    BuscaComponent
   ],
   imports: [
     FormsModule,
