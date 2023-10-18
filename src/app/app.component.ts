@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  title = 'Guia-Cruzeta';
+  title = 'Guia Cruzeta | Aqui você encontra.'
 
   constructor() {
   }
