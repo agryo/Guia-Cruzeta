@@ -8,7 +8,7 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  items: MenuItem[] | undefined
+  items!: MenuItem[]
   isMenuFixed = false
   tema: string = 'dark-blue'
   buttonTema: {
