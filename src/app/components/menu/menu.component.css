@@ -1,3 +1,7 @@
+.menu {
+  height: 100px;
+}
+
 .fixed-menu {
   position: fixed;
   top: 0;
