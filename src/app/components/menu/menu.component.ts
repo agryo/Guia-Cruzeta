@@ -87,7 +87,7 @@ export class MenuComponent implements OnInit {
           {
             label: 'Feriados',
             icon: 'pi pi-fw pi-calendar-minus',
-            routerLink: '/'
+            routerLink: '/feriados'
           },
           {
             label: 'Festividades',

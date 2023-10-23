@@ -14,6 +14,7 @@ import { RotasComponent } from './rotas/rotas.component';
 import { PublicosComponent } from './publicos/publicos.component';
 import { PrivadosComponent } from './privados/privados.component';
 import { BuscaComponent } from './busca/busca.component';
+import { FeriadosComponent } from './feriados/feriados.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BuscaComponent } from './busca/busca.component';
     RotasComponent,
     PublicosComponent,
     PrivadosComponent,
-    BuscaComponent
+    BuscaComponent,
+    FeriadosComponent
   ],
   imports: [
     FormsModule,
