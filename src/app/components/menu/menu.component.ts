@@ -21,92 +21,97 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-        {
-            label: 'Home',
-            icon: 'pi pi-fw pi-home',
+      {
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
+        routerLink: '/'
+      },
+      {
+        label: 'História',
+        icon: 'pi pi-fw pi-book',
+        items: [
+          {
+            label: 'Guia-Cruzeta',
+            icon: 'pi pi-fw pi-history',
+            routerLink: '/guia'
+          },
+          {
+            label: 'Cruzeta',
+            icon: 'pi pi-fw pi-history',
+            routerLink: '/cruzeta'
+          }
+        ]
+      },
+      {
+        label: 'Guia',
+        icon: 'pi pi-fw pi-compass',
+        items: [
+          {
+            label: 'Negócios',
+            icon: 'pi pi-fw pi-chart-line',
+            routerLink: '/negocios'
+          },
+          {
+            label: 'Serviços',
+            icon: 'pi pi-fw pi-wrench',
+            routerLink: '/servicos'
+          },
+          {
+            label: 'Turismo',
+            icon: 'pi pi-fw pi-sun',
+            items: [
+              {
+                label: 'Trilhas',
+                icon: 'pi pi-fw pi-map',
+                items: [
+                  {
+                    label: 'Rotas',
+                    icon: 'pi pi-fw pi-sort-alt',
+                    routerLink: '/rotas'
+                  }
+                ]
+              },
+              {
+                label: 'Locais',
+                icon: 'pi pi-fw pi-map-marker',
+                routerLink: '/locais'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        label: 'Eventos',
+        icon: 'pi pi-fw pi-calendar',
+        items: [
+          {
+            label: 'Feriados',
+            icon: 'pi pi-fw pi-calendar-minus',
             routerLink: '/'
-        },
-        {
-            label: 'História',
-            icon: 'pi pi-fw pi-book',
+          },
+          {
+            label: 'Festividades',
+            icon: 'pi pi-fw pi-gift',
             items: [
-                {
-                    label: 'Guia-Cruzeta',
-                    icon: 'pi pi-fw pi-history',
-                    routerLink: '/guia'
-                },
-                {
-                    label: 'Cruzeta',
-                    icon: 'pi pi-fw pi-history',
-                    routerLink: '/cruzeta'
-                }
+              {
+                label: 'Públicas',
+                icon: 'pi pi-fw pi-calendar-plus',
+                routerLink: '/publicos'
+              },
+              {
+                label: 'Privadas',
+                icon: 'pi pi-fw pi-calendar-minus',
+                routerLink: '/privados'
+              }
             ]
-        },
-        {
-            label: 'Guia',
-            icon: 'pi pi-fw pi-compass',
-            items: [
-                {
-                    label: 'Negócios',
-                    icon: 'pi pi-fw pi-chart-line',
-                    routerLink: '/negocios'
-                },
-                {
-                    label: 'Serviços',
-                    icon: 'pi pi-fw pi-wrench',
-                    routerLink: '/servicos'
-                },
-                {
-                    label: 'Turismo',
-                    icon: 'pi pi-fw pi-sun',
-                    items: [
-                        {
-                            label: 'Trilhas',
-                            icon: 'pi pi-fw pi-map',
-                            items: [
-                                {
-                                    label: 'Rotas',
-                                    icon: 'pi pi-fw pi-sort-alt',
-                                    routerLink: '/rotas'
-                                }
-                            ]
-                        },
-                        {
-                            label: 'Locais',
-                            icon: 'pi pi-fw pi-map-marker',
-                            routerLink: '/locais'
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            label: 'Eventos',
-            icon: 'pi pi-fw pi-calendar',
-            items: [
-                {
-                    label: 'Festividades',
-                    icon: 'pi pi-fw pi-gift',
-                    items: [
-                        {
-                            label: 'Públicas',
-                            icon: 'pi pi-fw pi-calendar-plus',
-                            routerLink: '/publicos'
-                        },
-                        {
-                            label: 'Privadas',
-                            icon: 'pi pi-fw pi-calendar-minus',
-                            routerLink: '/privados'
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            label: 'Sobre',
-            icon: 'pi pi-fw pi-info-circle',
-            routerLink: '/sobre'
-        }
+          }
+        ]
+      },
+      {
+        label: 'Sobre',
+        icon: 'pi pi-fw pi-info-circle',
+        routerLink: '/sobre'
+      }
     ];
   }
 
