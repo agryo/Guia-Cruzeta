@@ -1,3 +1,11 @@
-<div class="servicos">
-  <p>Página de Serviços será aqui!</p>
-</div>
+<section class="servicos surface-section px-3 py-5 shadow-2 border-round text-center">
+  <div class="text-3xl font-medium text-900 mb-3">Todos os Serviços cadastrados</div>
+  <div class="font-medium text-500 mb-3">Aqui você pode ver todos os serviços que já estão cadastrados em nosso site.</div>
+  <div style="height: auto" class="border-2 border-dashed surface-border">
+    <div class="surface-ground flex justify-content-center flex-wrap px-4 py-5 md:px-6 lg:px-8">
+      <div class="flex align-items-center justify-content-center" *ngFor="let item of servicoInfo">
+        <app-card [negocio]="item"></app-card>
+      </div>
+    </div>
+  </div>
+</section>

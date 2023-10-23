@@ -8,7 +8,6 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./negocios.component.css']
 })
 export class NegociosComponent implements OnInit {
-  value: string | undefined;
   negocioInfo: NegocioData[] = []
 
   constructor( private apiService: ApiService ) {
