@@ -31,14 +31,14 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-fw pi-book',
         items: [
           {
-            label: 'Guia-Cruzeta',
-            icon: 'pi pi-fw pi-history',
-            routerLink: '/guia'
-          },
-          {
             label: 'Cruzeta',
             icon: 'pi pi-fw pi-history',
             routerLink: '/cruzeta'
+          },
+          {
+            label: 'Guia-Cruzeta',
+            icon: 'pi pi-fw pi-history',
+            routerLink: '/guia'
           }
         ]
       },
