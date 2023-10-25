@@ -31,7 +31,7 @@ export class BuscaComponent implements OnInit {
   }
 
   buscarNome() {
-    console.log("Teste funcionando, recebendo " + this.busca)
+    //console.log("Teste funcionando, recebendo " + this.busca)
 
     if (this.busca === '') {
       return;
@@ -50,7 +50,9 @@ export class BuscaComponent implements OnInit {
 
   verificarEnter(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      this.buscarNome();
+      if (this.busca != '') {
+        this.buscarNome();
+      }
     }
   }
 }

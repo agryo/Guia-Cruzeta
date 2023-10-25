@@ -10,10 +10,13 @@ import { environment } from "src/environments/environment";
 })
 export class ApiService {
   private baseAPI: string = ""
+  private baseAPIBusca: string = ""
   private dados: any
 
   constructor( private http:HttpClient ) {
     this.baseAPI = environment.apiUrl
+    this.baseAPIBusca = environment.apiUrlBusca
+
   }
 
   listarNegocios():Observable<any> {
@@ -22,7 +25,7 @@ export class ApiService {
   }
 
   listarBusca(busca: string = ''):Observable<any> {
-    this.dados = this.http.get<any>(`${this.baseAPI}/buscar/${busca}`)
+    this.dados = this.http.get<any>(`${this.baseAPIBusca}/${busca}`)
     return this.dados
   }
 }

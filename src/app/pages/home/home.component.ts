@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  value: string | undefined;
+  value: string | undefined = ''
   negocioInfo: NegocioData[] = []
 
   constructor( private apiService: ApiService, private router: Router ) {
@@ -29,17 +29,19 @@ export class HomeComponent implements OnInit {
   }
 
   buscar() {
-    console.log("Teste funcionando, recebendo " + this.value)
+    //console.log("Teste funcionando, recebendo " + this.value)
 
-    this.router.navigate(['/buscar'], {
-      queryParams: {
-        query: this.value
-      }
-    });
+    if (this.value != "") {
+      this.router.navigate(['/buscar'], {
+        queryParams: {
+          query: this.value
+        }
+      });
+    }
   }
 
   verificarEnter(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && this.value != '') {
       this.buscar();
     }
   }
