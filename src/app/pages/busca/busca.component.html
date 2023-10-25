@@ -1,6 +1,23 @@
 <section class="busca">
-  <span class="p-input-icon-right">
-    <i class="pi pi-search"></i>
-    <input class="pr-8" type="text" pInputText [(ngModel)]="busca" />
-  </span>
+  <div class="surface-section px-4 py-2 md:px-6 lg:px-8 text-center">
+    <h1 class="text-center">Digite abaixo o que você está procurando...</h1>
+    <div class="pesquisa">
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+        <input class="pr-8" type="text" pInputText [(ngModel)]="busca" (keydown)="verificarEnter($event)" />
+      </span>
+      <button pButton pRipple (click)="buscarNome()" label="Buscar" type="button" class="ml-1 mr-3 p-button-raised"></button>
+    </div>
+
+    <div class="surface-card border-top-1 border-bottom-1 surface-border shadow-2 border-round w-full mt-3 mb-3">
+      <h2 class="text-center">Resultado da sua pesquisa...</h2>
+
+      <div class="flex justify-content-center flex-wrap mb-3">
+        <div class="flex align-items-center justify-content-center mb-3" *ngFor="let item of negocioInfo">
+          <app-card [negocio]="item"></app-card>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>

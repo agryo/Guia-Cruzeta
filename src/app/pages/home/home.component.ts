@@ -37,4 +37,10 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
+  verificarEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.buscar();
+    }
+  }
 }

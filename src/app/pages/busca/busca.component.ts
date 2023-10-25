@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { ApiService } from 'src/app/services/api.service';
+import { NegocioData } from 'src/app/models/negocioData';
 
 @Component({
   selector: 'app-busca',
@@ -9,14 +11,46 @@ import { map } from 'rxjs/operators';
 })
 export class BuscaComponent implements OnInit {
   busca: string | undefined;
+  negocioInfo: NegocioData[] = []
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private apiService: ApiService
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.pipe(
       map((params: Params) => params['query'])
     ).subscribe((query: string | undefined) => {
-      this.busca = query;
+      this.busca = query
+      this.buscarNome()
     });
+  }
+
+  buscarNome() {
+    console.log("Teste funcionando, recebendo " + this.busca)
+
+    if (this.busca === '') {
+      return;
+    }
+
+    this.apiService.listarBusca(this.busca).subscribe((res: any) => {
+      this.negocioInfo = res.map((item: any) => {
+        return {
+          nome: item.nome,
+          telefone: item.telefones[0]?.numero ?? 'Sem telefone', // Pega o primeiro número da lista ou undefined se a lista não existir
+          descricao: item.descricao
+        };
+      });
+    });
+  }
+
+  verificarEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.buscarNome();
+    }
   }
 }

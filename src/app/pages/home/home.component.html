@@ -9,7 +9,7 @@
 
             <span class="p-input-icon-right">
               <i class="pi pi-search"></i>
-              <input class="pr-8" type="text" pInputText [(ngModel)]="value" />
+              <input class="pr-8" type="text" pInputText [(ngModel)]="value" (keydown)="verificarEnter($event)" />
             </span>
 
             <button pButton pRipple (click)="buscar()" label="Buscar" type="button" class="ml-1 mr-3 p-button-raised"></button>
@@ -26,11 +26,13 @@
         <span class="text-blue-600">Muitas soluções</span>
     </div>
     <div class="text-700 mb-6">Com o <b>Guia Cruzeta</b> você pode encontrar informações sobre a cidade. Veja algumas...</div>
+
     <div class="flex justify-content-center flex-wrap">
         <div class="flex align-items-center justify-content-center" *ngFor="let item of negocioInfo">
           <app-card [negocio]="item"></app-card>
         </div>
     </div>
+
   </div>
 
 </section>
