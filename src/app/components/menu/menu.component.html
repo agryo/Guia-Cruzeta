@@ -1,7 +1,9 @@
 <section class="menu flex justify-content-center flex-wrap" [ngClass]="{'fixed-menu': isMenuFixed}">
   <p-menubar class="ml-1 mr-1 w-full" [model]="items">
     <ng-template pTemplate="start">
-      <img class="mx-8" src="../../../assets/imgs/logo-guia-trs.png" height="60" />
+      <a href="/">
+        <img class="mx-8" src="../../../assets/imgs/logo-guia-trs.png" height="60" />
+      </a>
     </ng-template>
     <ng-template pTemplate="end">
       <p-button class="mx-8" icon="{{ buttonTema.icon }}" (click)="mudarTema()"></p-button>

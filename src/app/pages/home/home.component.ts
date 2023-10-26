@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.listarNegocios().subscribe((res: any) => {
+    this.apiService.listarNegociosHome().subscribe((res: any) => {
       this.negocioInfo = res.map((item: any) => {
         return {
           nome: item.nome,

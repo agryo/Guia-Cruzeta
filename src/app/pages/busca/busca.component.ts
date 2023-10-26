@@ -15,7 +15,6 @@ export class BuscaComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private apiService: ApiService
   ) {
 

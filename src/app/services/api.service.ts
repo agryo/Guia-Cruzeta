@@ -11,17 +11,25 @@ import { environment } from "src/environments/environment";
 export class ApiService {
   private baseAPI: string = ""
   private baseAPIBusca: string = ""
+  private baseAPIHome: string = ""
   private dados: any
 
   constructor( private http:HttpClient ) {
     this.baseAPI = environment.apiUrl
     this.baseAPIBusca = environment.apiUrlBusca
+    this.baseAPIHome = environment.apiUrlHome
 
   }
 
   listarNegocios():Observable<any> {
     this.dados = this.http.get<any>(`${this.baseAPI}`)
     return this.dados
+  }
+
+  listarNegociosHome():Observable<any> {
+    this.dados = this.http.get<any>(`${this.baseAPIHome}/4`)
+    return this.dados
+
   }
 
   listarBusca(busca: string = ''):Observable<any> {
