@@ -19,6 +19,7 @@ export class NegociosComponent implements OnInit {
       this.negocioInfo = res.map((item: any) => {
         return {
           nome: item.nome,
+          logomarca: item.logomarca,
           telefone: item.telefones[0]?.numero ?? 'Sem telefone', // Pega o primeiro número da lista ou undefined se a lista não existir
           descricao: item.descricao
         };

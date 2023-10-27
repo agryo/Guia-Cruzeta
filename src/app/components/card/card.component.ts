@@ -8,16 +8,17 @@ import { NegocioData } from 'src/app/models/negocioData';
 })
 export class CardComponent implements OnInit {
   @Input() negocio:NegocioData
-  logo:string = "../../../assets/imgs/logomarca.png"
 
   constructor() {
     this.negocio = {
       nome:"",
-      telefone:"",
-      descricao:""
+      logomarca:"",
+      descricao:"",
+      telefone:""
     }
   }
 
   ngOnInit(): void {
+    console.log(this.negocio)
   }
 }
