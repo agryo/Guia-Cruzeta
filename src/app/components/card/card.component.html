@@ -1,7 +1,9 @@
 <div class="card">
   <img alt="Logomarca" src="{{ negocio.logomarca }}" />
-  <h4> {{ negocio.nome }} </h4>
-  <h6> {{ negocio.telefone }} </h6>
+  <div class="card_dados">
+    <h4> {{ negocio.nome }} </h4>
+    <h6> {{ negocio.telefone }} </h6>
+  </div>
   <p> {{ negocio.descricao }} </p>
-  <button pButton pRipple label="Detalhes" icon="pi pi-eye"></button>
+  <button pButton label="Detalhes" icon="pi pi-eye"></button>
  </div>

@@ -3,7 +3,7 @@
   width: 260px;
   height: 260px;
   margin: 5px;
-  border: 1px solid #cccccc41;
+  border: 1px outset #9c9c9c60;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -15,23 +15,24 @@
 }
 
 .card:hover {
-  border: 2px solid #007BFF;
+  border: 2px outset #007BFF;
 }
 
 /* Estilos para a imagem */
 .card img {
+  border: 1px groove #9c9c9c60;
   border-radius: 5px;
   max-width: 100%;
-  height: auto;
+  height: 110px;
 }
 
 /* Estilos para o título */
-.card h4 {
+.card_dados h4 {
   font-size: 18px;
   margin: 0;
 }
 
-.card h6 {
+.card_dados h6 {
   font-size: 14px;
   margin: 0;
 }
