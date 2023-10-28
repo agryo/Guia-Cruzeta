@@ -8,6 +8,7 @@ import { NegocioData } from 'src/app/models/negocioData';
 })
 export class CardComponent implements OnInit {
   @Input() negocio:NegocioData
+  visivel: boolean = false;
 
   constructor() {
     this.negocio = {
@@ -18,6 +19,9 @@ export class CardComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  }
+
+  mostrarDetalhes() {
+    this.visivel = true;
   }
 }

@@ -5,5 +5,9 @@
     <h6> {{ negocio.telefone }} </h6>
   </div>
   <p> {{ negocio.descricao }} </p>
-  <button pButton label="Detalhes" icon="pi pi-eye"></button>
+  <button pButton (click)="mostrarDetalhes()" label="Detalhes" icon="pi pi-eye"></button>
  </div>
+
+<p-dialog header="Detalhes" [(visible)]="visivel" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <app-detalhes></app-detalhes>
+</p-dialog>
