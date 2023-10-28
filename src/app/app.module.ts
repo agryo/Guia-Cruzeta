@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 /* Páginas e Componentes do Site */
 import { PagesModule } from "./pages/pages.module";
-import { ModalsModule } from "./modals/modals.module";
 import { ComponentsModule } from "./components/components.module";
 
 @NgModule({
@@ -23,8 +22,7 @@ import { ComponentsModule } from "./components/components.module";
     BrowserAnimationsModule,
     AppRoutingModule,
     PagesModule,
-    ComponentsModule,
-    ModalsModule
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
