@@ -20,6 +20,7 @@
 
 /* Estilos para a imagem */
 .card img {
+  border-radius: 5px;
   max-width: 100%;
   height: auto;
 }
@@ -38,20 +39,10 @@
 /* Estilos para a descrição */
 .card p {
   font-size: 14px;
-  margin: 10px 5px;
+  margin: 5px 5px;
 }
 
 /* Estilos para os botões */
 .card button {
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.card button:hover {
-  background-color: #0056b3;
+  max-height: 30px;
 }
