@@ -1,6 +1,7 @@
 export type NegocioData = {
-    nome: string
-    logomarca: string
-    descricao: string
-    telefone: string
-  }
+  id: any
+  nome: string
+  logomarca: string
+  descricao: string
+  telefone: string
+}

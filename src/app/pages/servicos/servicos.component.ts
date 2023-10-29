@@ -17,6 +17,7 @@ export class ServicosComponent implements OnInit {
     this.apiService.listarNegocios().subscribe((res: any) => {
       this.servicoInfo = res.map((item: any) => {
         return {
+          id: item.id,
           nome: item.nome,
           logomarca: item.logomarca,
           telefone: item.telefones[0]?.numero ?? 'Sem telefone', // Pega o primeiro número da lista ou undefined se a lista não existir

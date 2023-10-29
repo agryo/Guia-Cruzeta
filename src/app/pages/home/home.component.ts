@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NegocioData } from 'src/app/models/negocioData';
 import { ApiService } from 'src/app/services/api.service';
+import { NegocioData } from 'src/app/models/negocioData';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.apiService.listarNegociosHome().subscribe((res: any) => {
       this.negocioInfo = res.map((item: any) => {
         return {
+          id: item.id,
           nome: item.nome,
           logomarca: item.logomarca,
           telefone: item.telefones[0]?.numero ?? 'Sem telefone', // Pega o primeiro número da lista ou undefined se a lista não existir
@@ -30,8 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   buscar() {
-    //console.log("Teste funcionando, recebendo " + this.value)
-
     if (this.value != "") {
       this.router.navigate(['/buscar'], {
         queryParams: {

@@ -18,7 +18,6 @@ export class ApiService {
     this.baseAPI = environment.apiUrl
     this.baseAPIBusca = environment.apiUrlBusca
     this.baseAPIHome = environment.apiUrlHome
-
   }
 
   listarNegocios():Observable<any> {
@@ -26,10 +25,14 @@ export class ApiService {
     return this.dados
   }
 
+  listarNegocioId(id: string):Observable<any> {
+    this.dados = this.http.get<any>(`${this.baseAPI}/${id}`)
+    return this.dados
+  }
+
   listarNegociosHome():Observable<any> {
     this.dados = this.http.get<any>(`${this.baseAPIHome}/4`)
     return this.dados
-
   }
 
   listarBusca(busca: string = ''):Observable<any> {

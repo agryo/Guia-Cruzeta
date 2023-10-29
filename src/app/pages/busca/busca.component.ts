@@ -39,6 +39,7 @@ export class BuscaComponent implements OnInit {
     this.apiService.listarBusca(this.busca).subscribe((res: any) => {
       this.negocioInfo = res.map((item: any) => {
         return {
+          id: item.id,
           nome: item.nome,
           logomarca: item.logomarca,
           telefone: item.telefones[0]?.numero ?? 'Sem telefone', // Pega o primeiro número da lista ou undefined se a lista não existir
