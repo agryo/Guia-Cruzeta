@@ -6,7 +6,18 @@
       </a>
     </ng-template>
     <ng-template pTemplate="end">
-      <p-button class="mx-8" icon="{{ buttonTema.icon }}" (click)="mudarTema()"></p-button>
+      <div class="flex flex-row mx-8">
+        <div class="flex align-items-center justify-content-center mx-1">
+          <p-button icon="pi pi-user" severity="success" (click)="mostrarCadastro()"></p-button>
+        </div>
+        <div class="flex align-items-center justify-content-center mx-1">
+          <p-button icon="{{ buttonTema.icon }}" (click)="mudarTema()"></p-button>
+        </div>
+      </div>
     </ng-template>
   </p-menubar>
 </section>
+
+<p-dialog header="Entrar" [(visible)]="visivel" [modal]="true" [style]="{ width: '80vw', height: '90vw' }" [draggable]="false" [resizable]="false">
+
+</p-dialog>

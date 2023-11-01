@@ -17,7 +17,7 @@ import { LogoComponent } from './logo/logo.component';
   imports: [
     FormsModule,
     CommonModule,
-    PrimeNgModule
+    PrimeNgModule,
   ],
   exports: [
     MenuComponent,

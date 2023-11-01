@@ -9,6 +9,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RippleModule } from 'primeng/ripple';
+import { DropdownModule } from 'primeng/dropdown';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [],
@@ -19,7 +23,11 @@ import { DialogModule } from 'primeng/dialog';
     InputTextModule,
     ButtonModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    CheckboxModule,
+    RippleModule,
+    DropdownModule,
+    FileUploadModule
   ],
   exports: [
     MenubarModule,
@@ -27,7 +35,11 @@ import { DialogModule } from 'primeng/dialog';
     InputTextModule,
     ButtonModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    CheckboxModule,
+    RippleModule,
+    DropdownModule,
+    FileUploadModule
   ]
 })
 export class PrimeNgModule { }

@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { TemaService } from "../../services/tema.service";
 import { MenuItem } from 'primeng/api';
+import { TemaService } from "../../services/tema.service";
 
 @Component({
   selector: 'app-menu',
@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
   items!: MenuItem[]
   isMenuFixed = false
   tema: string = 'dark-blue'
+  visivel: boolean = false
   buttonTema: {
     icon: string
   };
@@ -141,5 +142,18 @@ export class MenuComponent implements OnInit {
       // Altera o import do CSS
       this.temaService.switchTheme('dark-blue')
     }
+  }
+
+  mostrarCadastro() {
+    if (this.visivel === false) {
+      this.visivel = true
+    }
+    else {
+      this.visivel = false
+    }
+  }
+
+  fecharCadastro() {
+    this.visivel = false
   }
 }
