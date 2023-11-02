@@ -16,6 +16,9 @@ export class MenuComponent implements OnInit {
     icon: string
   };
 
+  valCheck: string[] = ['remember'];
+  password!: string;
+
   constructor(private temaService: TemaService) {
     this.buttonTema = { icon: 'pi pi-sun' };
   }
@@ -151,9 +154,5 @@ export class MenuComponent implements OnInit {
     else {
       this.visivel = false
     }
-  }
-
-  fecharCadastro() {
-    this.visivel = false
   }
 }

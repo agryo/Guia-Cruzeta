@@ -13,6 +13,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { RippleModule } from 'primeng/ripple';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileUploadModule } from 'primeng/fileupload';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [],
@@ -27,7 +28,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     CheckboxModule,
     RippleModule,
     DropdownModule,
-    FileUploadModule
+    FileUploadModule,
+    PasswordModule
   ],
   exports: [
     MenubarModule,
@@ -39,7 +41,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     CheckboxModule,
     RippleModule,
     DropdownModule,
-    FileUploadModule
+    FileUploadModule,
+    PasswordModule
   ]
 })
 export class PrimeNgModule { }

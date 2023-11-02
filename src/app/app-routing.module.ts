@@ -13,6 +13,7 @@ import { FeriadosComponent } from "./pages/feriados/feriados.component";
 import { PublicosComponent } from './pages/publicos/publicos.component';
 import { PrivadosComponent } from './pages/privados/privados.component';
 import { BuscaComponent } from './pages/busca/busca.component';
+import { UsuarioComponent } from "./pages/usuario/usuario.component";
 
 const routes: Routes = [
   { path:'', component: HomeComponent, pathMatch:'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path:'publicos', component: PublicosComponent, pathMatch:'prefix'},
   { path:'privados', component: PrivadosComponent, pathMatch:'prefix'},
   { path:'buscar', component: BuscaComponent, pathMatch:'prefix'},
+  { path:'usuario', component: UsuarioComponent, pathMatch:'prefix'},
   { path:'**', redirectTo:''}
 ];
 
