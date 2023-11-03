@@ -14,6 +14,8 @@ import { RippleModule } from 'primeng/ripple';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileUploadModule } from 'primeng/fileupload';
 import { PasswordModule } from 'primeng/password';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [],
@@ -29,7 +31,9 @@ import { PasswordModule } from 'primeng/password';
     RippleModule,
     DropdownModule,
     FileUploadModule,
-    PasswordModule
+    PasswordModule,
+    ConfirmDialogModule,
+    ToastModule
   ],
   exports: [
     MenubarModule,
@@ -42,7 +46,9 @@ import { PasswordModule } from 'primeng/password';
     RippleModule,
     DropdownModule,
     FileUploadModule,
-    PasswordModule
+    PasswordModule,
+    ConfirmDialogModule,
+    ToastModule
   ]
 })
 export class PrimeNgModule { }

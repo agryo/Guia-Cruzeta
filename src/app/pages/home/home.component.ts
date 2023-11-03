@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
   value: string | undefined = ''
   negocioInfo: NegocioData[] = []
 
-  constructor( private apiService: ApiService, private router: Router ) {
-
-  }
+  constructor(
+    private apiService: ApiService,
+    private router: Router ) {  }
 
   ngOnInit(): void {
     this.apiService.listarNegociosHome().subscribe((res: any) => {

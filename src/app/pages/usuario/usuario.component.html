@@ -7,50 +7,50 @@
         <div class="p-fluid p-formgrid grid">
           <div class="field col-10 md:col-8">
             <label htmlFor="nome">Nome</label>
-            <input pInputText id="nome" type="text" />
+            <input pInputText id="nome" type="text" placeholder="Digite aqui seu nome..." />
           </div>
           <div class="field col-10 md:col-4">
             <label htmlFor="cpf">CPF</label>
-            <input pInputText id="cpf" type="text" placeholder="000.000.000-00" pattern="[0-9]{11}" />
+            <input pInputText id="cpf" type="text" placeholder="999.999.999-99" pattern="[0-9]{11}" />
           </div>
             <div class="field col-10 md:col-6">
               <label htmlFor="email">E-mail</label>
-              <input pInputText id="email" type="email" />
+              <input pInputText id="email" type="email" placeholder="Digite seu e-mail..." />
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="fone">Telefone</label>
-              <input pInputText id="fone" type="text" />
+              <input pInputText id="fone" type="tel" placeholder="(99) 99999-9999" />
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="cel">Celular</label>
-              <input pInputText id="cel" type="text" />
+              <input pInputText id="cel" type="tel" placeholder="(99) 99999-9999" />
             </div>
           </div>
           <h5>Endereço</h5>
           <div class="p-fluid p-formgrid grid">
             <div class="field col-10 md:col-8">
               <label htmlFor="logradouro">Logradouro</label>
-              <input pInputText id="logradouro" />
+              <input pInputText id="logradouro" type="text" placeholder="Digite aqui seu endereço..." />
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="numero">Número</label>
-              <input pInputText id="numero" />
+              <input pInputText id="numero" type="text" placeholder="Digite aqui o número da endereço..." />
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="bairro">Bairro</label>
-              <input pInputText id="bairro" type="text" />
+              <input pInputText id="bairro" type="text" placeholder="Digite seu bairro..." />
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="cidade">Cidade</label>
-              <input pInputText id="cidade" type="text" />
+              <p-dropdown [options]="dropdownItemsCidade" optionLabel="cidade" [(ngModel)]="cidadeSelecionada"></p-dropdown>
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="cep">CEP</label>
-              <input pInputText id="cep" type="text" />
+              <input pInputText id="cep" type="text" placeholder="99999-999" />
             </div>
             <div class="field col-10 md:col-6">
               <label htmlFor="uf">Estado</label>
-              <p-dropdown [options]="dropdownItems" optionLabel="uf" [(ngModel)]="selectedState"></p-dropdown>
+              <p-dropdown [options]="dropdownItemsEstado" optionLabel="uf" [(ngModel)]="estadoSelecionado"></p-dropdown>
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="latitude">Latitude</label>
@@ -61,10 +61,13 @@
               <input pInputText id="longitude" type="text" />
             </div>
           <div class="field col-10 md:col-2">
-              <p-button label="Salvar"></p-button>
+            <p-toast></p-toast>
+            <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+            <p-button icon="pi pi-check" (click)="salvarCadastro()" label="Salvar"></p-button>
           </div>
           <div class="field col-10 md:col-2">
-              <p-button label="Cancelar"></p-button>
+            <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+            <p-button icon="pi pi-times" (click)="cancelarCadastro()" label="Cancelar"></p-button>
           </div>
           <div class="field col-10 md:col-4">
               <p-button label="Cadastrar Negócio"></p-button>

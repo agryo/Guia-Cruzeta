@@ -1,32 +1,73 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.css'],
-  providers: [MessageService]
+  providers: [ConfirmationService, MessageService]
 })
 export class UsuarioComponent implements OnInit {
-  uploadedFiles: any[] = [];
-  selectedState: any = null;
+  estadoSelecionado: any = null;
+  cidadeSelecionada: any = null;
 
-  constructor(private messageService: MessageService) {}
+  constructor(
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
+    private router: Router) {
+
+  }
 
   ngOnInit(): void {
   }
 
-  dropdownItems = [
-      { uf: 'Rio Grande do Norte', code: 'RN' },
-      { uf: 'Paraiba', code: 'PB' },
-      { uf: 'Pernambuco', code: 'PE' }
+  dropdownItemsEstado = [
+    { uf: 'Rio Grande do Norte', code: 'RN' },
   ];
 
-  onUpload(event: any) {
-      for (const file of event.files) {
-          this.uploadedFiles.push(file);
-      }
+  dropdownItemsCidade = [
+    { cidade: 'Cruzeta', code: 'Cruzeta'}
+  ];
 
-      this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded' });
+  salvarCadastro() {
+    console.log('Foi salvar uma')
+    this.confirmationService.confirm({
+      message: 'Você confirma que todas as informações estão corretas:',
+      header: 'Confimar registro',
+      icon: 'pi pi-check',
+      acceptLabel: 'Sim',
+      rejectLabel: 'Não',
+      accept: () => {
+        console.log('Salvar')
+        this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Usuário salvo com sucesso!' });
+        this.confirmationService.close()
+      },
+      reject: () => {
+        console.log('Cancelado!')
+        this.messageService.add({ severity: 'error', summary: 'Cancelado', detail: 'O usuário não foi salvo!' });
+        this.confirmationService.close()
+      }
+    });
   }
+
+  cancelarCadastro() {
+    console.log('Foi cancelar uma')
+    this.confirmationService.confirm({
+      message: 'Tem certeza de que deseja cancelar o cadastro?',
+      header: 'Confirmar cancelamento',
+      icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sim',
+      rejectLabel: 'Não',
+      accept: () => {
+        console.log('Cancelado')
+        this.router.navigate(['/'])
+      },
+      reject: () => {
+        console.log('Cancelado o cancelamento')
+        this.confirmationService.close()
+      }
+    });
+  }
+
 }
