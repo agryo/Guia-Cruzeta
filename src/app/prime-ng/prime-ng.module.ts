@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { MenubarModule } from 'primeng/menubar';
 import { StyleClassModule } from 'primeng/styleclass';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DialogModule } from 'primeng/dialog';
@@ -33,7 +35,9 @@ import { ToastModule } from 'primeng/toast';
     FileUploadModule,
     PasswordModule,
     ConfirmDialogModule,
-    ToastModule
+    ToastModule,
+    InputMaskModule,
+    InputNumberModule
   ],
   exports: [
     MenubarModule,
@@ -48,7 +52,9 @@ import { ToastModule } from 'primeng/toast';
     FileUploadModule,
     PasswordModule,
     ConfirmDialogModule,
-    ToastModule
+    ToastModule,
+    InputMaskModule,
+    InputNumberModule
   ]
 })
 export class PrimeNgModule { }

@@ -7,38 +7,38 @@
         <div class="p-fluid p-formgrid grid">
           <div class="field col-10 md:col-8">
             <label htmlFor="nome">Nome</label>
-            <input pInputText id="nome" type="text" placeholder="Digite aqui seu nome..." />
+            <input type="text" pInputText [(ngModel)]="nome" placeholder="Digite aqui seu nome..." />
           </div>
           <div class="field col-10 md:col-4">
             <label htmlFor="cpf">CPF</label>
-            <input pInputText id="cpf" type="text" placeholder="999.999.999-99" pattern="[0-9]{11}" />
+            <p-inputMask mask="999.999.999-99" [(ngModel)]="cpf" placeholder="999.999.999-99"></p-inputMask>
           </div>
             <div class="field col-10 md:col-6">
               <label htmlFor="email">E-mail</label>
-              <input pInputText id="email" type="email" placeholder="Digite seu e-mail..." />
+              <input type="email" pInputText [(ngModel)]="email" placeholder="Digite seu e-mail..." />
             </div>
             <div class="field col-10 md:col-3">
-              <label htmlFor="fone">Telefone</label>
-              <input pInputText id="fone" type="tel" placeholder="(99) 99999-9999" />
+              <label htmlFor="tel">Telefone</label>
+              <p-inputMask mask="(99) 9999-9999" [(ngModel)]="tel" placeholder="(99) 9999-9999"></p-inputMask>
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="cel">Celular</label>
-              <input pInputText id="cel" type="tel" placeholder="(99) 99999-9999" />
+              <p-inputMask mask="(99) 99999-9999" [(ngModel)]="cel" placeholder="(99) 99999-9999"></p-inputMask>
             </div>
           </div>
-          <h5>Endereço</h5>
+          <h2>Endereço</h2>
           <div class="p-fluid p-formgrid grid">
             <div class="field col-10 md:col-8">
               <label htmlFor="logradouro">Logradouro</label>
-              <input pInputText id="logradouro" type="text" placeholder="Digite aqui seu endereço..." />
+              <input type="text" pInputText [(ngModel)]="logradouro" placeholder="Digite aqui seu endereço..." />
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="numero">Número</label>
-              <input pInputText id="numero" type="text" placeholder="Digite aqui o número da endereço..." />
+              <input type="text" pInputText [(ngModel)]="numero" placeholder="Digite aqui o número do endereço..." />
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="bairro">Bairro</label>
-              <input pInputText id="bairro" type="text" placeholder="Digite seu bairro..." />
+              <input type="text" pInputText [(ngModel)]="bairro" placeholder="Digite seu bairro..." />
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="cidade">Cidade</label>
@@ -46,7 +46,7 @@
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="cep">CEP</label>
-              <input pInputText id="cep" type="text" placeholder="99999-999" />
+              <p-inputMask mask="99999-999" [(ngModel)]="cep" placeholder="99999-999"></p-inputMask>
             </div>
             <div class="field col-10 md:col-6">
               <label htmlFor="uf">Estado</label>
@@ -54,11 +54,11 @@
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="latitude">Latitude</label>
-              <input pInputText id="latitude" type="text" />
+              <p-inputNumber [(ngModel)]="latitude" [useGrouping]="false"></p-inputNumber>
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="longitude">Longitude</label>
-              <input pInputText id="longitude" type="text" />
+              <p-inputNumber [(ngModel)]="longitude" [useGrouping]="false"></p-inputNumber>
             </div>
           <div class="field col-10 md:col-2">
             <p-toast></p-toast>

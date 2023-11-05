@@ -1,20 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { usuarioData } from 'src/app/models/usuarioData';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.css'],
-  providers: [ConfirmationService, MessageService]
+  providers: [ConfirmationService, MessageService, ApiService]
 })
 export class UsuarioComponent implements OnInit {
-  estadoSelecionado: any = null;
+  nome: string = ''
+  cpf: string = ''
+  email: string = ''
+  tel: string = ''
+  cel: string = ''
+  logradouro: string = ''
+  numero: string = ''
+  bairro: string = ''
   cidadeSelecionada: any = null;
+  cep: string = ''
+  estadoSelecionado: any = null;
+  latitude: number = 0
+  longitude: number = 0
+
+  usuario: usuarioData | undefined
 
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
+    private apiService: ApiService,
     private router: Router) {
 
   }
@@ -40,6 +56,29 @@ export class UsuarioComponent implements OnInit {
       rejectLabel: 'Não',
       accept: () => {
         console.log('Salvar')
+        this.usuario = {
+          nome: this.nome,
+          cpf: this.cpf,
+          email: this.email,
+          enderecos: [{
+            logradouro: this.logradouro,
+            numero: this.numero,
+            bairro: this.bairro,
+            cidade: this.cidadeSelecionada.code,
+            cep: this.cep,
+            uf: this.estadoSelecionado.code,
+            coordenadas: {
+              latitude: this.latitude,
+              longitude: this.longitude
+            }
+          }],
+          telefones: [
+            { numero: this.tel },
+            { numero: this.cel }
+          ]
+        }
+        console.log(this.usuario)
+        this.apiService.salvarUsuario(this.usuario)
         this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Usuário salvo com sucesso!' });
         this.confirmationService.close()
       },
