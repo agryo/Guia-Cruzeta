@@ -55,7 +55,6 @@ export class UsuarioComponent implements OnInit {
       acceptLabel: 'Sim',
       rejectLabel: 'Não',
       accept: () => {
-        console.log('Salvar')
         this.usuario = {
           nome: this.nome,
           cpf: this.cpf,
