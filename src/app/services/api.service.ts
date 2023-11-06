@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
 import { environment } from "src/environments/environment";
-import { usuarioData as any, usuarioData } from './../models/usuarioData';
+import { UsuarioDto } from '../models/UsuarioDto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,13 @@ export class ApiService {
   private baseAPIBusca: string = ""
   private baseAPIHome: string = ""
   private dados: any
+
+  private httpOptionsJSON = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+      // 'Authorization': 'seu-token-de-autenticação'
+    })
+  };
 
   constructor( private http:HttpClient ) {
     this.baseAPIRoot = environment.apiUrlRoot
@@ -43,7 +50,10 @@ export class ApiService {
     return this.dados
   }
 
-  salvarUsuario(usuario: usuarioData):Observable<any> {
-    return this.http.post<any>(`${this.baseAPIRoot}`, usuario)
+  salvarUsuario(usuario: UsuarioDto):Observable<UsuarioDto> {
+    console.log('Entrou no método da API')
+    console.log(`Link ${this.baseAPIRoot}`)
+    console.log(usuario)
+    return this.http.post<UsuarioDto>(`${this.baseAPIRoot}`, usuario, this.httpOptionsJSON)
   }
 }

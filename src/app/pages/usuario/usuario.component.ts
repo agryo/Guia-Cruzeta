@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { usuarioData } from 'src/app/models/usuarioData';
+import { UsuarioDto } from 'src/app/models/UsuarioDto';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
   providers: [ConfirmationService, MessageService, ApiService]
 })
 export class UsuarioComponent implements OnInit {
+  id: string = ''
   nome: string = ''
   cpf: string = ''
   email: string = ''
@@ -19,13 +20,13 @@ export class UsuarioComponent implements OnInit {
   logradouro: string = ''
   numero: string = ''
   bairro: string = ''
-  cidadeSelecionada: any = null;
+  cidadeSelecionada: any = null
   cep: string = ''
-  estadoSelecionado: any = null;
+  estadoSelecionado: any = null
   latitude: number = 0
   longitude: number = 0
 
-  usuario: usuarioData | undefined
+  usuario: UsuarioDto | undefined
 
   constructor(
     private confirmationService: ConfirmationService,
@@ -56,6 +57,7 @@ export class UsuarioComponent implements OnInit {
       rejectLabel: 'Não',
       accept: () => {
         this.usuario = {
+          id: this.id,
           nome: this.nome,
           cpf: this.cpf,
           email: this.email,
@@ -77,8 +79,19 @@ export class UsuarioComponent implements OnInit {
           ]
         }
         console.log(this.usuario)
-        this.apiService.salvarUsuario(this.usuario)
-        this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Usuário salvo com sucesso!' });
+
+        this.apiService.salvarUsuario(this.usuario).subscribe({
+          next: (response) => {
+            console.log('Usuário salvo com sucesso', response);
+            this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Usuário salvo com sucesso!' });
+          },
+          error: (err) => {
+            console.error('Erro ao salvar usuário', err);
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao salvar usuário!' });
+          }
+        });
+
+        //this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Usuário salvo com sucesso!' });
         this.confirmationService.close()
       },
       reject: () => {

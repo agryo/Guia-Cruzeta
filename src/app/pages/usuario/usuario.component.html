@@ -54,11 +54,11 @@
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="latitude">Latitude</label>
-              <p-inputNumber [(ngModel)]="latitude" [useGrouping]="false"></p-inputNumber>
+              <p-inputNumber [(ngModel)]="latitude" mode="decimal" [useGrouping]="false" [minFractionDigits]="6" [maxFractionDigits]="14"></p-inputNumber>
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="longitude">Longitude</label>
-              <p-inputNumber [(ngModel)]="longitude" [useGrouping]="false"></p-inputNumber>
+              <p-inputNumber [(ngModel)]="longitude" mode="decimal" [useGrouping]="false" [minFractionDigits]="6" [maxFractionDigits]="14"></p-inputNumber>
             </div>
           <div class="field col-10 md:col-2">
             <p-toast></p-toast>
