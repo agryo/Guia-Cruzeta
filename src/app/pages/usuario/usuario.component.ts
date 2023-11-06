@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { UsuarioDto } from 'src/app/models/UsuarioDto';
 import { ApiService } from 'src/app/services/api.service';
@@ -91,7 +92,6 @@ export class UsuarioComponent implements OnInit {
           }
         });
 
-        //this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Usuário salvo com sucesso!' });
         this.confirmationService.close()
       },
       reject: () => {
