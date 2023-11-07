@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { NegocioData } from 'src/app/models/negocioData';
-import { NegocioInfoData } from 'src/app/models/negocioInfoData';
+import { NegocioDto } from 'src/app/models/NegocioDto';
 
 @Component({
   selector: 'app-card',
@@ -10,7 +10,7 @@ import { NegocioInfoData } from 'src/app/models/negocioInfoData';
 })
 export class CardComponent implements OnInit {
   @Input() negocio!:NegocioData
-  @Input() info!:NegocioInfoData
+  @Input() info!:NegocioDto
   visivel: boolean = false;
 
   constructor(private apiService: ApiService) {
@@ -22,8 +22,8 @@ export class CardComponent implements OnInit {
   }
 
   mostrarDetalhes() {
-    this.apiService.listarNegocioId(this.negocio.id).subscribe((res: NegocioInfoData) => {
-      this.info = (res as NegocioInfoData)
+    this.apiService.listarNegocioId(this.negocio.id).subscribe((res: NegocioDto) => {
+      this.info = (res as NegocioDto)
     });
 
     if (this.visivel === false) {

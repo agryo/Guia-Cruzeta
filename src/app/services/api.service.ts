@@ -5,12 +5,14 @@ import { Observable } from 'rxjs';
 
 import { environment } from "src/environments/environment";
 import { UsuarioDto } from '../models/UsuarioDto';
+import { NegocioDto } from "../models/NegocioDto";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private baseAPIRoot: string = ""
+  private baseAPIUsuario: string = ""
+  private baseAPINegocio: string = ""
   private baseAPI: string = ""
   private baseAPIBusca: string = ""
   private baseAPIHome: string = ""
@@ -24,8 +26,8 @@ export class ApiService {
   };
 
   constructor( private http:HttpClient ) {
-    this.baseAPIRoot = environment.apiUrlRoot
-    this.baseAPI = environment.apiUrl
+    this.baseAPIUsuario = environment.apiUrlUsuario
+    this.baseAPINegocio = environment.apiUrlNegocio
     this.baseAPIBusca = environment.apiUrlBusca
     this.baseAPIHome = environment.apiUrlHome
   }
@@ -50,10 +52,18 @@ export class ApiService {
     return this.dados
   }
 
+  salvarNegocio(usurioId: string, negocio: NegocioDto):Observable<NegocioDto> {
+    console.log('Entrou no método da API')
+    console.log(`Link ${this.baseAPIUsuario}/${usurioId}`)
+    console.log(negocio)
+    return this.http.post<NegocioDto>(`${this.baseAPIUsuario}/${usurioId}/negocios`, negocio, this.httpOptionsJSON)
+  }
+
   salvarUsuario(usuario: UsuarioDto):Observable<UsuarioDto> {
     console.log('Entrou no método da API')
-    console.log(`Link ${this.baseAPIRoot}`)
+    console.log(`Link ${this.baseAPIUsuario}`)
     console.log(usuario)
-    return this.http.post<UsuarioDto>(`${this.baseAPIRoot}`, usuario, this.httpOptionsJSON)
+    return this.http.post<UsuarioDto>(`${this.baseAPIUsuario}`, usuario, this.httpOptionsJSON)
   }
+
 }

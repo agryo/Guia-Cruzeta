@@ -1,5 +1,4 @@
-export type NegocioInfoData = {
-  id: number
+export type NegocioDto = {
   nome: string
   logomarca: string
   descricao: string
@@ -10,12 +9,13 @@ export type NegocioInfoData = {
     cidade: string
     uf: string
     cep: string
+    coordenadas: {
+      latitude: number,
+      longitude: number
+    }
   }
-  coordenadas: {
-    latitude: string
-    longitude: string
-  }
-  telefones: {
-      numero: string
-  }
+  telefones: [
+    { numero: string },
+    { numero: string }
+  ]
 }

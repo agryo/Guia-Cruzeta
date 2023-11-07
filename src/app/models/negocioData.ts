@@ -1,5 +1,5 @@
 export type NegocioData = {
-  id: any
+  id: string
   nome: string
   logomarca: string
   descricao: string
