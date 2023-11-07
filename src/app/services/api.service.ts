@@ -13,7 +13,6 @@ import { NegocioDto } from "../models/NegocioDto";
 export class ApiService {
   private baseAPIUsuario: string = ""
   private baseAPINegocio: string = ""
-  private baseAPI: string = ""
   private baseAPIBusca: string = ""
   private baseAPIHome: string = ""
   private dados: any
@@ -33,12 +32,12 @@ export class ApiService {
   }
 
   listarNegocios():Observable<any> {
-    this.dados = this.http.get<any>(`${this.baseAPI}`)
+    this.dados = this.http.get<any>(`${this.baseAPINegocio}`)
     return this.dados
   }
 
   listarNegocioId(id: string):Observable<any> {
-    this.dados = this.http.get<any>(`${this.baseAPI}/${id}`)
+    this.dados = this.http.get<any>(`${this.baseAPINegocio}/${id}`)
     return this.dados
   }
 
