@@ -97,8 +97,8 @@
             <p-inputMask mask="(99) 9999-9999" [(ngModel)]="tel_neg" placeholder="(99) 9999-9999"></p-inputMask>
           </div>
           <div class="field col-10 md:col-3">
-            <label htmlFor="cel_neg">Telefone</label>
-            <p-inputMask mask="(99) 9999-9999" [(ngModel)]="cel_neg" placeholder="(99) 9999-9999"></p-inputMask>
+            <label htmlFor="cel_neg">Celular</label>
+            <p-inputMask mask="(99) 99999-9999" [(ngModel)]="cel_neg" placeholder="(99) 99999-9999"></p-inputMask>
           </div>
           <div class="field col-10 md:col-12">
             <label htmlFor="descricao_neg">Descrição</label>
@@ -106,17 +106,14 @@
           </div>
           <div class="field col-12">
             <h3>Logomarca</h3>
-            <p-fileUpload chooseLabel="Abrir" uploadLabel="Enviar" cancelLabel="Cancelar"
-              name="log_neg" url="./upload.php" (onUpload)="onUpload($event)"
-              [multiple]="false" accept="image/*" [maxFileSize]="1000000"
-              invalidFileSizeMessageSummary="{0}: Imagem muito grande,"
-              invalidFileSizeMessageDetail="o tamanho máximo é {0}" >
-              <ng-template pTemplate="content">
-                <ul *ngIf="uploadedFiles.length">
-                  <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                </ul>
-              </ng-template>
-            </p-fileUpload>
+            <form enctype="multipart/form-data" class="field col-10 md:col-8">
+              <input pButton type="file" accept="image/*" (change)="onFileSelected($event)" />
+              <div *ngIf="uploadedFile">
+                <h5>Arquivo para enviar:</h5>
+                <p>{{ uploadedFile.name }} - {{ uploadedFile.size }} bytes</p>
+              </div>
+              <button pButton type="button" (click)="onUpload()">Enviar</button>
+            </form>
           </div>
         </div>
         <h3>Endereço</h3>

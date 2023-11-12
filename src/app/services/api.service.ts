@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 import { environment } from "src/environments/environment";
 import { UsuarioDto } from '../models/UsuarioDto';
@@ -15,6 +15,7 @@ export class ApiService {
   private baseAPINegocio: string = ""
   private baseAPIBusca: string = ""
   private baseAPIHome: string = ""
+  private baseAPIUpload: string = ""
   private dados: any
 
   private httpOptionsJSON = {
@@ -29,6 +30,7 @@ export class ApiService {
     this.baseAPINegocio = environment.apiUrlNegocio
     this.baseAPIBusca = environment.apiUrlBusca
     this.baseAPIHome = environment.apiUrlHome
+    this.baseAPIUpload = environment.apiUrlUpload
   }
 
   listarNegocios():Observable<any> {
@@ -37,18 +39,15 @@ export class ApiService {
   }
 
   listarNegocioId(id: string):Observable<any> {
-    this.dados = this.http.get<any>(`${this.baseAPINegocio}/${id}`)
-    return this.dados
+    return this.dados = this.http.get<any>(`${this.baseAPINegocio}/${id}`)
   }
 
   listarNegociosHome():Observable<any> {
-    this.dados = this.http.get<any>(`${this.baseAPIHome}/4`)
-    return this.dados
+    return this.dados = this.http.get<any>(`${this.baseAPIHome}/4`)
   }
 
   listarBusca(busca: string = ''):Observable<any> {
-    this.dados = this.http.get<any>(`${this.baseAPIBusca}/${busca}`)
-    return this.dados
+    return this.dados = this.http.get<any>(`${this.baseAPIBusca}/${busca}`)
   }
 
   salvarNegocio(usurioId: string, negocio: NegocioDto):Observable<NegocioDto> {
@@ -60,9 +59,16 @@ export class ApiService {
 
   salvarUsuario(usuario: UsuarioDto):Observable<UsuarioDto> {
     console.log('Entrou no método da API')
-    console.log(`Link ${this.baseAPIUsuario}`)
+    console.log(`Link: ${this.baseAPIUsuario}`)
     console.log(usuario)
     return this.http.post<UsuarioDto>(`${this.baseAPIUsuario}`, usuario, this.httpOptionsJSON)
+  }
+
+  salvarLogo(file: FormData): Observable<string> {
+    console.log("Entrou na API de Upload")
+    console.log(`Link: ${this.baseAPIUpload}`)
+    console.log(file)
+    return this.http.post<string>(this.baseAPIUpload, file)
   }
 
 }

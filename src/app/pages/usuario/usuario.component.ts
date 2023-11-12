@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { FileSendEvent, FileUploadEvent } from 'primeng/fileupload';
+
+import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 import { NegocioDto } from 'src/app/models/NegocioDto';
 import { UsuarioDto } from 'src/app/models/UsuarioDto';
-import { ApiService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-usuario',
@@ -13,6 +17,15 @@ import { ApiService } from 'src/app/services/api.service';
   providers: [ConfirmationService, MessageService, ApiService]
 })
 export class UsuarioComponent implements OnInit {
+  baseApiUrlUpload: string = environment.apiUrlUpload
+  uploadedFile: any
+  file: FormData = new FormData()
+
+  usuario: UsuarioDto | undefined
+  negocio: NegocioDto | undefined
+  cadastroVisivel: boolean = false
+  negociosVisivel: boolean = false
+
   id: string = ''
   nome: string = ''
   cpf: string = ''
@@ -43,13 +56,6 @@ export class UsuarioComponent implements OnInit {
   tel_neg: string = ''
   cel_neg: string = ''
 
-  uploadedFiles: any[] = [];
-
-  usuario: UsuarioDto | undefined
-  negocio: NegocioDto | undefined
-  cadastroVisivel: boolean = false
-  negociosVisivel: boolean = false
-
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
@@ -69,12 +75,39 @@ export class UsuarioComponent implements OnInit {
     { cidade: 'Cruzeta', code: 'Cruzeta'}
   ];
 
-  onUpload(event: any) {
-    for (const file of event.files) {
-        this.uploadedFiles.push(file);
-    }
+  onFileSelected(event: any) {
+    console.log("Coleta do arquivo", event)
+    const file: File = event.target.files[0]
+    this.uploadedFile = file
+    console.log(file)
+    this.file = new FormData()
+    this.file.append('file', file, file.name)
+  }
 
-    this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded' });
+  onUpload() {
+    console.log("PEGOU!!!")
+
+    if (this.file.has('file')) {
+      // Aqui você pode implementar a lógica de upload para o seu servidor
+      this.apiService.salvarLogo(this.file).subscribe(
+        (response: any) => {
+          if (response.success) {
+            this.logo_neg = response.data.logo_url
+            console.log('Link da imagem:', this.logo_neg)
+            this.messageService.add({ severity: 'info', summary: 'Success', detail: response.message })
+          } else {
+            console.error('Erro durante a requisição:', response.message)
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: response.message })
+          }
+        },
+        (error) => {
+          console.error('Erro durante a requisição:', error)
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro durante o upload' })
+        }
+      )
+    } else {
+      console.log('Nenhum arquivo selecionado.')
+    }
   }
 
   salvarCadastro() {
