@@ -210,6 +210,7 @@ export class UsuarioComponent implements OnInit {
         });
 
         this.confirmationService.close()
+        this.fecharCadastroNegocio()
       },
       reject: () => {
         console.log('Cancelado!')
