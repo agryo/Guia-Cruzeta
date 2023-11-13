@@ -104,16 +104,22 @@
             <label htmlFor="descricao_neg">Descrição</label>
             <input type="text" pInputText [(ngModel)]="descricao_neg" placeholder="Digite uma breve descriçao do negócio..." />
           </div>
-          <div class="field col-12">
+          <div class="field col-10 md:col-12">
             <h3>Logomarca</h3>
-            <form enctype="multipart/form-data" class="field col-10 md:col-8">
-              <input pButton type="file" accept="image/*" (change)="onFileSelected($event)" />
-              <div *ngIf="uploadedFile">
-                <h5>Arquivo para enviar:</h5>
-                <p>{{ uploadedFile.name }} - {{ uploadedFile.size }} bytes</p>
-              </div>
-              <button pButton type="button" (click)="onUpload()">Enviar</button>
-            </form>
+            <p-fileUpload
+              chooseLabel="Abrir" uploadLabel="Enviar" cancelLabel="Cancelar"
+              name="file[]"
+              url="https://www.primefaces.org/cdn/api/upload.php"
+              (onUpload)="onUpload($event)"
+              [multiple]="false"
+              accept="image/*"
+              [maxFileSize]="1000000">
+              <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                  <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+                </ul>
+              </ng-template>
+            </p-fileUpload>
           </div>
         </div>
         <h3>Endereço</h3>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { FileSendEvent, FileUploadEvent } from 'primeng/fileupload';
+import { FileUploadEvent } from 'primeng/fileupload';
 
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
@@ -18,7 +18,7 @@ import { UsuarioDto } from 'src/app/models/UsuarioDto';
 })
 export class UsuarioComponent implements OnInit {
   baseApiUrlUpload: string = environment.apiUrlUpload
-  uploadedFile: any
+  uploadedFiles: any[] = []
   file: FormData = new FormData()
 
   usuario: UsuarioDto | undefined
@@ -75,18 +75,18 @@ export class UsuarioComponent implements OnInit {
     { cidade: 'Cruzeta', code: 'Cruzeta'}
   ];
 
-  onFileSelected(event: any) {
+  onUpload(event: FileUploadEvent) {
     console.log("Coleta do arquivo", event)
-    const file: File = event.target.files[0]
-    this.uploadedFile = file
-    console.log(file)
-    this.file = new FormData()
-    this.file.append('file', file, file.name)
-  }
+    const file_event: File = event.files[0]
+    for(let file of event.files) {
+      this.uploadedFiles.push(file)
+    }
+    console.log("uploadedFiles: ", this.uploadedFiles)
+    console.log("file_event: ", file_event)
 
-  onUpload() {
+    this.file.append('file', file_event, file_event.name)
+
     console.log("PEGOU!!!")
-
     if (this.file.has('file')) {
       // Aqui você pode implementar a lógica de upload para o seu servidor
       this.apiService.salvarLogo(this.file).subscribe(
@@ -94,7 +94,7 @@ export class UsuarioComponent implements OnInit {
           if (response.success) {
             this.logo_neg = response.data.logo_url
             console.log('Link da imagem:', this.logo_neg)
-            this.messageService.add({ severity: 'info', summary: 'Success', detail: response.message })
+            this.messageService.add({ severity: 'info', summary: 'Sucesso', detail: response.message })
           } else {
             console.error('Erro durante a requisição:', response.message)
             this.messageService.add({ severity: 'error', summary: 'Erro', detail: response.message })
