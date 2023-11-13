@@ -147,7 +147,7 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  mostrarCadastro() {
+  visivelCadastro() {
     if (this.visivel === false) {
       this.visivel = true
     }

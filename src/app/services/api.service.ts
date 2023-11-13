@@ -51,23 +51,29 @@ export class ApiService {
   }
 
   salvarNegocio(usurioId: string, negocio: NegocioDto):Observable<NegocioDto> {
+    /*
     console.log('Entrou no método da API')
     console.log(`Link ${this.baseAPIUsuario}/${usurioId}`)
     console.log(negocio)
+    */
     return this.http.post<NegocioDto>(`${this.baseAPIUsuario}/${usurioId}/negocios`, negocio, this.httpOptionsJSON)
   }
 
   salvarUsuario(usuario: UsuarioDto):Observable<UsuarioDto> {
+    /*
     console.log('Entrou no método da API')
     console.log(`Link: ${this.baseAPIUsuario}`)
     console.log(usuario)
+    */
     return this.http.post<UsuarioDto>(`${this.baseAPIUsuario}`, usuario, this.httpOptionsJSON)
   }
 
   salvarLogo(file: FormData): Observable<string> {
+    /*
     console.log("Entrou na API de Upload")
     console.log(`Link: ${this.baseAPIUpload}`)
     console.log(file)
+    */
     return this.http.post<string>(this.baseAPIUpload, file)
   }
 

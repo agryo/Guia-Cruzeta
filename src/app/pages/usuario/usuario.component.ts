@@ -61,7 +61,6 @@ export class UsuarioComponent implements OnInit {
     private messageService: MessageService,
     private apiService: ApiService,
     private router: Router) {
-
   }
 
   ngOnInit(): void {
@@ -75,7 +74,7 @@ export class UsuarioComponent implements OnInit {
     { cidade: 'Cruzeta', code: 'Cruzeta'}
   ];
 
-  onUpload(event: FileUploadEvent) {
+  enviarLogo(event: FileUploadEvent) {
     console.log("Coleta do arquivo", event)
     const file_event: File = event.files[0]
     for(let file of event.files) {
@@ -83,7 +82,6 @@ export class UsuarioComponent implements OnInit {
     }
     console.log("uploadedFiles: ", this.uploadedFiles)
     console.log("file_event: ", file_event)
-
     this.file.append('file', file_event, file_event.name)
 
     console.log("PEGOU!!!")

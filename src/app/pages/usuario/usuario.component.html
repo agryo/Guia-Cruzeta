@@ -110,7 +110,7 @@
               chooseLabel="Abrir" uploadLabel="Enviar" cancelLabel="Cancelar"
               name="file[]"
               url="https://www.primefaces.org/cdn/api/upload.php"
-              (onUpload)="onUpload($event)"
+              (onUpload)="enviarLogo($event)"
               [multiple]="false"
               accept="image/*"
               [maxFileSize]="1000000">
