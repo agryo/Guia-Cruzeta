@@ -7,7 +7,7 @@
         <div class="p-fluid p-formgrid grid">
           <div class="field col-10 md:col-8">
             <label htmlFor="nome">Nome</label>
-            <input type="text" pInputText [(ngModel)]="nome" placeholder="Digite aqui seu nome..." />
+            <input type="text" pInputText pAutoFocus [autofocus]="true" [(ngModel)]="nome" placeholder="Digite aqui seu nome..." />
           </div>
           <div class="field col-10 md:col-4">
             <label htmlFor="cpf">CPF</label>
@@ -42,7 +42,7 @@
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="cidade">Cidade</label>
-              <p-dropdown [options]="dropdownItemsCidade" optionLabel="cidade" [(ngModel)]="cidadeSelecionada"></p-dropdown>
+              <p-dropdown [options]="cidades" [(ngModel)]="cidadeSelecionada" optionLabel="cidade" placeholder="Selecione sua cidade"></p-dropdown>
             </div>
             <div class="field col-10 md:col-4">
               <label htmlFor="cep">CEP</label>
@@ -50,7 +50,7 @@
             </div>
             <div class="field col-10 md:col-6">
               <label htmlFor="uf">Estado</label>
-              <p-dropdown [options]="dropdownItemsEstado" optionLabel="uf" [(ngModel)]="estadoSelecionado"></p-dropdown>
+              <p-dropdown [options]="estados" [(ngModel)]="estadoSelecionado" optionLabel="uf" placeholder="Selecione seu estado"></p-dropdown>
             </div>
             <div class="field col-10 md:col-3">
               <label htmlFor="latitude">Latitude</label>
@@ -90,7 +90,7 @@
         <div class="p-fluid p-formgrid grid">
           <div class="field col-10 md:col-6">
             <label htmlFor="nome_neg">Nome</label>
-            <input type="text" pInputText [(ngModel)]="nome_neg" placeholder="Digite aqui o nome do negócio..." />
+            <input type="text" pInputText pAutoFocus [(ngModel)]="nome_neg" placeholder="Digite aqui o nome do negócio..." />
           </div>
           <div class="field col-10 md:col-3">
             <label htmlFor="tel_neg">Telefone</label>
@@ -138,7 +138,7 @@
           </div>
           <div class="field col-10 md:col-4">
             <label htmlFor="cidade_neg">Cidade</label>
-              <p-dropdown [options]="dropdownItemsCidade" optionLabel="cidade" [(ngModel)]="cidadeSelecionadaNeg"></p-dropdown>
+              <p-dropdown [options]="cidades" [(ngModel)]="cidadeSelecionadaNeg" optionLabel="cidade"></p-dropdown>
           </div>
           <div class="field col-10 md:col-4">
             <label htmlFor="cep_neg">CEP</label>
@@ -146,7 +146,7 @@
           </div>
           <div class="field col-10 md:col-6">
             <label htmlFor="uf_neg">Estado</label>
-            <p-dropdown [options]="dropdownItemsEstado" optionLabel="uf" [(ngModel)]="estadoSelecionadoNeg"></p-dropdown>
+            <p-dropdown [options]="estados" [(ngModel)]="estadoSelecionadoNeg" optionLabel="uf"></p-dropdown>
           </div>
           <div class="field col-10 md:col-3">
             <label htmlFor="lat_neg">Latitude</label>

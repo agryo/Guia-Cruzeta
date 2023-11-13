@@ -8,7 +8,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
 import { NegocioDto } from 'src/app/models/NegocioDto';
 import { UsuarioDto } from 'src/app/models/UsuarioDto';
-
+import { Cidade } from "src/app/models/Cidade";
+import { Estado } from "src/app/models/Estado";
 
 @Component({
   selector: 'app-usuario',
@@ -26,6 +27,9 @@ export class UsuarioComponent implements OnInit {
   cadastroVisivel: boolean = false
   negociosVisivel: boolean = false
 
+  estados: Estado[] | undefined
+  cidades: Cidade[] | undefined
+
   id: string = ''
   nome: string = ''
   cpf: string = ''
@@ -35,9 +39,9 @@ export class UsuarioComponent implements OnInit {
   logradouro: string = ''
   numero: string = ''
   bairro: string = ''
-  cidadeSelecionada: any = null
+  cidadeSelecionada: Cidade = { cidade: '', code: '' }
   cep: string = ''
-  estadoSelecionado: any = null
+  estadoSelecionado: Estado = { uf: '', code: ''}
   latitude: number = 0
   longitude: number = 0
 
@@ -48,8 +52,8 @@ export class UsuarioComponent implements OnInit {
   logradouro_neg: string = ''
   num_neg: string = ''
   bairro_neg: string = ''
-  cidadeSelecionadaNeg: any = null
-  estadoSelecionadoNeg: any = null
+  cidadeSelecionadaNeg: Cidade = { cidade: '', code: '' }
+  estadoSelecionadoNeg: Estado = { uf: '', code: ''}
   cep_neg: string = ''
   lat_neg: number = 0
   long_neg: number = 0
@@ -64,34 +68,40 @@ export class UsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cidades = [
+      { cidade: 'Cruzeta', code: 'Cruzeta' }
+    ]
+
+    this.estados = [
+      { uf: 'Rio Grande do Norte', code: 'RN'}
+    ]
   }
 
-  dropdownItemsEstado = [
-    { uf: 'Rio Grande do Norte', code: 'RN' },
-  ];
-
-  dropdownItemsCidade = [
-    { cidade: 'Cruzeta', code: 'Cruzeta'}
-  ];
-
   enviarLogo(event: FileUploadEvent) {
+    /*
     console.log("Coleta do arquivo", event)
+    */
     const file_event: File = event.files[0]
     for(let file of event.files) {
       this.uploadedFiles.push(file)
     }
+    /*
     console.log("uploadedFiles: ", this.uploadedFiles)
     console.log("file_event: ", file_event)
+    */
     this.file.append('file', file_event, file_event.name)
-
+    /*
     console.log("PEGOU!!!")
+    */
     if (this.file.has('file')) {
       // Aqui você pode implementar a lógica de upload para o seu servidor
       this.apiService.salvarLogo(this.file).subscribe(
         (response: any) => {
           if (response.success) {
             this.logo_neg = response.data.logo_url
+            /*
             console.log('Link da imagem:', this.logo_neg)
+            */
             this.messageService.add({ severity: 'info', summary: 'Sucesso', detail: response.message })
           } else {
             console.error('Erro durante a requisição:', response.message)

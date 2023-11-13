@@ -18,6 +18,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { PasswordModule } from 'primeng/password';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 @NgModule({
   declarations: [],
@@ -37,7 +38,8 @@ import { ToastModule } from 'primeng/toast';
     ConfirmDialogModule,
     ToastModule,
     InputMaskModule,
-    InputNumberModule
+    InputNumberModule,
+    AutoFocusModule
   ],
   exports: [
     MenubarModule,
@@ -54,7 +56,8 @@ import { ToastModule } from 'primeng/toast';
     ConfirmDialogModule,
     ToastModule,
     InputMaskModule,
-    InputNumberModule
+    InputNumberModule,
+    AutoFocusModule
   ]
 })
 export class PrimeNgModule { }
