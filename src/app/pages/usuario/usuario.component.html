@@ -1,5 +1,5 @@
 <section class="usuario">
-
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
   <div class="grid surface-section justify-content-center">
     <div class="col-10">
       <div class="card">
@@ -62,18 +62,16 @@
             </div>
           <div class="field col-10 md:col-2">
             <p-toast></p-toast>
-            <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
             <p-button icon="pi pi-check" (click)="salvarCadastro()" label="Salvar"></p-button>
           </div>
           <div class="field col-10 md:col-2">
-            <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
             <p-button icon="pi pi-times" (click)="cancelarCadastro()" label="Cancelar"></p-button>
           </div>
           <div class="field col-10 md:col-4">
               <p-button label="Cadastrar Negócio" (click)="mostrarCadastroNegocio()"></p-button>
           </div>
           <div class="field col-10 md:col-4">
-              <p-button label="Visualizar Negócios" (click)="mostrarNegocios()"></p-button>
+              <p-button label="Visualizar Negócios" (click)="visualizarNegocios()"></p-button>
           </div>
         </div>
       </div>
@@ -170,5 +168,5 @@
 
 <p-dialog header="Negócios cadastrados pelo usuário" [(visible)]="negociosVisivel" [modal]="true" [style]="{ width: '80vw', height: '90vw' }" [draggable]="false" [resizable]="false">
 
-  <p-button (onClick)="fecharNegocios()" label="Cancelar"></p-button>
+  <p-button (onClick)="visualizarNegocios()" label="Cancelar"></p-button>
 </p-dialog>

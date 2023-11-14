@@ -25,7 +25,10 @@
         <img src="assets/imgs/logo-guia2-trsp.png" alt="Image" height="70" class="mb-3">
         <div class="text-900 text-3xl font-medium mb-3">Bem-vindo de volta</div>
         <span class="text-600 font-medium line-height-3">Não tem cadastro ainda?</span>
-        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Crie hoje!</a>
+        <a
+          class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
+          [routerLink]="['/usuario']" (click)="visivelCadastro()"
+        >Cadastre-se hoje!</a>
     </div>
 
     <div>
@@ -45,7 +48,7 @@
 
         <button
           pButton pRipple label="Entrar" icon="pi pi-user" class="w-full"
-          [routerLink]="['/usuario']" (click)="visivelCadastro()">
+        >
         </button>
     </div>
 </div>

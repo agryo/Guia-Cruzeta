@@ -93,35 +93,30 @@ export class UsuarioComponent implements OnInit {
     /*
     console.log("PEGOU!!!")
     */
-    if (this.file.has('file')) {
-      // Aqui você pode implementar a lógica de upload para o seu servidor
-      this.apiService.salvarLogo(this.file).subscribe(
-        (response: any) => {
-          if (response.success) {
-            this.logo_neg = response.data.logo_url
-            /*
-            console.log('Link da imagem:', this.logo_neg)
-            */
-            this.messageService.add({ severity: 'info', summary: 'Sucesso', detail: response.message })
-          } else {
-            console.error('Erro durante a requisição:', response.message)
-            this.messageService.add({ severity: 'error', summary: 'Erro', detail: response.message })
-          }
-        },
-        (error) => {
-          console.error('Erro durante a requisição:', error)
-          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro durante o upload' })
+    this.apiService.salvarLogo(this.file).subscribe(
+      (response: any) => {
+        if (response.success) {
+          this.logo_neg = response.data.logo_url
+          /*
+          console.log('Link da imagem:', this.logo_neg)
+          */
+          this.messageService.add({ severity: 'info', summary: 'Sucesso', detail: response.message })
+        } else {
+          console.error('Erro durante a requisição:', response.message)
+          this.messageService.add({ severity: 'error', summary: 'Erro', detail: response.message })
         }
-      )
-    } else {
-      console.log('Nenhum arquivo selecionado.')
-    }
+      },
+      (error) => {
+        console.error('Erro durante a requisição:', error)
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro durante o upload' })
+      }
+    )
   }
 
   salvarCadastro() {
     console.log('Foi salvar uma')
     this.confirmationService.confirm({
-      message: 'Você confirma que todas as informações estão corretas:',
+      message: 'Você confirma que todas as informações estão corretas?',
       header: 'Confimar registro',
       icon: 'pi pi-check',
       acceptLabel: 'Sim',
@@ -168,7 +163,7 @@ export class UsuarioComponent implements OnInit {
       },
       reject: () => {
         console.log('Cancelado!')
-        this.messageService.add({ severity: 'error', summary: 'Cancelado', detail: 'O usuário não foi salvo!' });
+        this.messageService.add({ severity: 'info', summary: 'Cancelado', detail: 'O usuário não foi salvo!' });
         this.confirmationService.close()
       }
     });
@@ -177,7 +172,7 @@ export class UsuarioComponent implements OnInit {
   salvarNegocio() {
     console.log('Foi salvar uma')
     this.confirmationService.confirm({
-      message: 'Você confirma que todas as informações estão corretas:',
+      message: 'Você confirma que todas as informações estão corretas?',
       header: 'Confimar registro',
       icon: 'pi pi-check',
       acceptLabel: 'Sim',
@@ -208,24 +203,23 @@ export class UsuarioComponent implements OnInit {
 
         this.apiService.salvarNegocio(this.id, this.negocio).subscribe({
           next: (response) => {
-            console.log('Negócio salvo com sucesso', response);
-            this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Negócio salvo com sucesso!' });
+            console.log('Negócio salvo com sucesso', response)
+            this.messageService.add({ severity: 'success', summary: 'Salvo', detail: 'Negócio salvo com sucesso!' })
           },
           error: (err) => {
-            console.error('Erro ao salvar negócio', err);
-            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao salvar negócio!' });
+            console.error('Erro ao salvar negócio', err)
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao salvar negócio!' })
           }
-        });
-
+        })
+        this.cadastroVisivel = false
         this.confirmationService.close()
-        this.fecharCadastroNegocio()
       },
       reject: () => {
         console.log('Cancelado!')
-        this.messageService.add({ severity: 'error', summary: 'Cancelado', detail: 'O negócio não foi salvo!' });
+        this.messageService.add({ severity: 'info', summary: 'Cancelado', detail: 'O negócio não foi salvo!' })
         this.confirmationService.close()
       }
-    });
+    })
   }
 
   cancelarCadastro() {
@@ -239,12 +233,13 @@ export class UsuarioComponent implements OnInit {
       accept: () => {
         console.log('Cancelado')
         this.router.navigate(['/'])
+        this.confirmationService.close()
       },
       reject: () => {
         console.log('Cancelado o cancelamento')
         this.confirmationService.close()
       }
-    });
+    })
   }
 
   mostrarCadastroNegocio() {
@@ -263,10 +258,26 @@ export class UsuarioComponent implements OnInit {
   }
 
   fecharCadastroNegocio() {
-    this.cadastroVisivel = false
+    console.log('Foi cancelar uma')
+    this.confirmationService.confirm({
+      message: 'Tem certeza de que deseja cancelar o cadastro do negócio?',
+      header: 'Confirmar cancelamento',
+      icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sim',
+      rejectLabel: 'Não',
+      accept: () => {
+        console.log('Cancelado')
+        this.cadastroVisivel = false
+        this.confirmationService.close()
+      },
+      reject: () => {
+        console.log('Cancelado o cancelamento')
+        this.confirmationService.close()
+      }
+    })
   }
 
-  mostrarNegocios() {
+  visualizarNegocios() {
 
     if (this.negociosVisivel === false) {
       this.negociosVisivel = true
@@ -274,10 +285,6 @@ export class UsuarioComponent implements OnInit {
     else {
       this.negociosVisivel = false
     }
-  }
-
-  fecharNegocios() {
-    this.negociosVisivel = false
   }
 
 }
