@@ -25,4 +25,4 @@ Todo o meu projeto eu testo em ambiente de desenvolvimento no [VS Code](https://
 ## NGINX
 
 A hospedagem Web Server é gerenciada pelo [NGINX](https://www.nginx.com/), um servidor web, que assim como todo o projeto eu uso para praticar também essa parte de servidor web e tentar ser realmente um "Full-Stack" mais completo.
-Eu não trabalho ainda na área, mas sou apaixonado por tecnologia e espero um dia trabalhar e ter um ótima experiencia trabalhando nessa área, pois eu acredito que se trabalhar com o que se ama, torna o trabalho bem mais fácil e prazeroso.
+Eu não trabalho ainda na área, mas sou apaixonado por tecnologia e espero um dia trabalhar e ter uma ótima experiencia trabalhando nessa área, pois eu acredito que se trabalhar com o que se ama, torna o trabalho bem mais fácil e prazeroso.
