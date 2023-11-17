@@ -7,6 +7,7 @@ Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-c
 Vejam minhas redes sociais...
 
 [Linkedin](https://www.linkedin.com/in/agryo/)
+
 [DIO - Digital Innovation One](https://www.dio.me/users/agryo)
 
 ## Site Guia-Cruzeta
