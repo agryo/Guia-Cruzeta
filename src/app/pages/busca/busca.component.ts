@@ -3,11 +3,13 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 import { NegocioData } from 'src/app/models/negocioData';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-busca',
   templateUrl: './busca.component.html',
-  styleUrls: ['./busca.component.css']
+  styleUrls: ['./busca.component.css'],
+  providers: [ MessageService ]
 })
 export class BuscaComponent implements OnInit {
   busca: string | undefined;
@@ -15,6 +17,7 @@ export class BuscaComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private messageService: MessageService,
     private apiService: ApiService
   ) {
 
@@ -30,30 +33,36 @@ export class BuscaComponent implements OnInit {
   }
 
   buscarNome() {
-    //console.log("Teste funcionando, recebendo " + this.busca)
-
     if (this.busca === '') {
-      return;
+      // Exibe uma mensagem informando que o campo de busca está em branco
+      this.messageService.add({ severity: 'info', summary: 'Digite algo', detail: 'O campo de busca está em branco.' })
+      return // Retorna para evitar a execução do restante do código
     }
 
     this.apiService.listarBusca(this.busca).subscribe((res: any) => {
-      this.negocioInfo = res.map((item: any) => {
-        return {
-          id: item.id,
-          nome: item.nome,
-          logomarca: item.logomarca,
-          telefone: item.telefones[0]?.numero ?? 'Sem telefone', // Pega o primeiro número da lista ou undefined se a lista não existir
-          descricao: item.descricao
-        };
-      });
-    });
+      if (res.status === 404) {
+        // Exibe uma mensagem informando que a busca não foi localizada
+        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Nenhum resultado encontrado.' })
+        // Limpa os resultados anteriores
+        this.negocioInfo = []
+      } else {
+        // Atualiza o componente com os resultados da busca
+        this.negocioInfo = res.map((item: any) => {
+          return {
+            id: item.id,
+            nome: item.nome,
+            logomarca: item.logomarca,
+            telefone: item.telefones[0]?.numero ?? 'Sem telefone',
+            descricao: item.descricao
+          }
+        })
+      }
+    })
   }
 
   verificarEnter(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      if (this.busca != '') {
-        this.buscarNome();
-      }
+      this.buscarNome()
     }
   }
 }

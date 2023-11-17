@@ -1,27 +1,27 @@
-# GuiaCruzeta
+# Projeto Guia-Cruzeta
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+Este projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-cli) versão 16.2.1, uma ferramenta de linha de comando que facilita o desenvolvimento de aplicações Web.
 
-## Development server
+## Sobre mim
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Vejam minhas redes sociais...
 
-## Code scaffolding
+[Linkedin](https://www.linkedin.com/in/agryo/)
+[DIO - Digital Innovation One](https://www.dio.me/users/agryo)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Site Guia-Cruzeta
 
-## Build
+Este site é um projeto básico feito no Angular como projeto de estudo do mesmo para praticar e aprender a usar o Angular na vida real. O site é 100% experimental, mas está funcionando muito bem e vou continuar praticando nas horas vagas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## API RESTful
 
-## Running unit tests
+O projeto é no Angular, mas também, estou estudando outras coisas como um "Full-Stack", fiz uma API RESTful, no qual eu uso o [Gradle](https://gradle.org/),  um gerenciador de projetos, com o JDK do [Java 17](https://www.java.com/pt-BR/), uma plataforma de desenvolvimento de software, ganhando produtividade com o [Spring Boot](https://spring.io/projects/spring-boot), um framework web Java, para o Banco de Dados [MariaDB](https://mariadb.org/), um sistema de gerenciamento de banco de dados relacional, e o [Swagger](https://swagger.io/), uma ferramenta de geração de documentação para APIs REST, para gerar a documentação da API, usei também o [PostgresSQL](https://www.postgresql.org/), mas mudei para o MariaDB por ser um projeto simples e de pequeno porte.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Hospedagem
 
-## Running end-to-end tests
+Todo o meu projeto eu testo em ambiente de desenvolvimento no [VS Code](https://code.visualstudio.com/), um editor de código-fonte, mas tenho um Servidor Linux em um notebook velho com o [Ubuntu Server 22.04.3 LTS](https://ubuntu.com/download/server) no qual eu "testo valendo". Nesse servidor eu tenho meu site [Link Informática](https://agryo.cruzeta.com.br/) que já está funcionando, mas esse é um site completamente genérico somente para manter o servidor on-line.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## NGINX
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+A hospedagem Web Server é gerenciada pelo [NGINX](https://www.nginx.com/), um servidor web, que assim como todo o projeto eu uso para praticar também essa parte de servidor web e tentar ser realmente um "Full-Stack" mais completo.
+Eu não trabalho ainda na área, mas sou apaixonado por tecnologia e espero um dia trabalhar e ter um ótima experiencia trabalhando nessa área, pois eu acredito que se trabalhar com o que se ama, torna o trabalho bem mais fácil e prazeroso.

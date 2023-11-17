@@ -3,6 +3,7 @@
     <h1 class="text-center">Digite abaixo o que você está procurando...</h1>
     <div class="pesquisa">
       <span class="p-input-icon-right">
+        <p-toast position="center"></p-toast>
         <i class="pi pi-search"></i>
         <input class="pr-8" type="text" pInputText [(ngModel)]="busca" (keydown)="verificarEnter($event)" />
       </span>

@@ -19,16 +19,16 @@ import { Estado } from "src/app/models/Estado";
 })
 export class UsuarioComponent implements OnInit {
   baseApiUrlUpload: string = environment.apiUrlUpload
+
   uploadedFiles: any[] = []
   file: FormData = new FormData()
+  estados: Estado[] | undefined
+  cidades: Cidade[] | undefined
 
   usuario: UsuarioDto | undefined
   negocio: NegocioDto | undefined
   cadastroVisivel: boolean = false
   negociosVisivel: boolean = false
-
-  estados: Estado[] | undefined
-  cidades: Cidade[] | undefined
 
   id: string = ''
   nome: string = ''
