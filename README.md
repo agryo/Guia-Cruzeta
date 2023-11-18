@@ -24,7 +24,7 @@ O projeto é no Angular, mas também, estou estudando outras coisas como um "Ful
 
 ## Hospedagem
 
-Todo o meu projeto eu testo em ambiente de desenvolvimento no [VS Code](https://code.visualstudio.com/), um editor de código-fonte, mas tenho um Servidor Linux em um notebook velho com o [Ubuntu Server 22.04.3 LTS](https://ubuntu.com/download/server) no qual eu "testo valendo". Nesse servidor eu tenho meu site [Link Informática](https://agryo.cruzeta.com.br/) que já está funcionando, mas esse é um site completamente genérico somente para manter o servidor on-line.
+Todo o meu projeto eu testo em ambiente de desenvolvimento no [VS Code](https://code.visualstudio.com/), um editor de código-fonte, mas tenho um Servidor Linux em um notebook velho com o [Ubuntu Server 22.04.3 LTS](https://ubuntu.com/download/server) no qual eu "testo valendo". Nesse servidor eu tenho um site que já está funcionando, mas esse é um site completamente genérico somente para manter o servidor on-line.
 
 ## NGINX
 
